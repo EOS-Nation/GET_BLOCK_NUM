@@ -10,7 +10,7 @@ class [[eosio::contract]] example : public contract {
     [[eosio::action]]
     void getblock()
     {
-        const uint32_t block_num = eosio::internal_use_do_not_use::get_block_num();
+        const uint32_t block_num = eosio::current_block_number();
         getblocklog_action getblocklog( get_self(), { get_self(), "active"_n });
         getblocklog.send(block_num);
     }
